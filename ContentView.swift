@@ -22,8 +22,12 @@ struct ContentView: View {
     private let menuIconName: String = "icon_menu"
     private let infoIconName: String = "icon_info"
 
+    // ✅ 你的硬摆放：保留 -320
     private let barBottomOffset: CGFloat = -320
     private let menuReserveWidth: CGFloat = 60
+
+    // ✅ 用 padding 贴合（你要更贴就改小/改负）
+    private let controlTopPadding: CGFloat = 8
 
     // 彩色粒子颜色
     private let particleColors: [Color] = [
@@ -58,10 +62,11 @@ struct ContentView: View {
 
                 Spacer()
 
-                // ✅ 底部区域：滚动栏 + 菜单按钮 + 四矩形按钮
-                VStack(spacing: 14) {
+                // ✅✅ 硬解底部组件：不要再对整体做 .padding(.bottom, -320)
+                // 只对 ScrollBar 和 ControlBar 分别 offset，同一个偏移量，永远贴在一起
+                VStack(spacing: 0) {
 
-                    // 滚动栏 + 固定菜单
+                    // ===== ScrollBar + Menu =====
                     ZStack(alignment: .trailing) {
                         IconScrollBar(icons: icons, selectedIndex: $selectedIndex)
                             .padding(.trailing, menuReserveWidth)
@@ -71,22 +76,28 @@ struct ContentView: View {
                         }
                         .padding(.trailing, 16)
                     }
+                    .offset(y: barBottomOffset)   // ✅ 只把 scroll bar 硬摆到 -320
 
-                    // ✅ 新增：滚动栏下方四个矩形按钮
+                    // ===== ControlBar（贴住 ScrollBar）=====
                     ControlBar(
                         icons: controlIcons,
                         selectedIndex: $selectedControlIndex
                     )
                     .padding(.horizontal, 18)
+                    .padding(.top, controlTopPadding) // ✅ 用 padding 控制贴合距离
+                    .offset(y: barBottomOffset)        // ✅ 同样 -320，保证永远跟着 scroll bar
                 }
-                .padding(.bottom, barBottomOffset)
+                .padding(.bottom, 16) // 给底部一点呼吸（可改 0）
             }
         }
         .contentShape(Rectangle())
-        .onTapGesture { location in
-            // 创建点击粒子
-            createClickParticle(at: location)
-        }
+        // ✅ 用 DragGesture(minimumDistance:0) 稳定获取点击坐标
+        .gesture(
+            DragGesture(minimumDistance: 0, coordinateSpace: .global)
+                .onEnded { value in
+                    createClickParticle(at: value.location)
+                }
+        )
         .preferredColorScheme(.dark)
     }
 
@@ -323,7 +334,6 @@ struct IconScrollBar: View {
     let icons: [String]
     @Binding var selectedIndex: Int
 
-    private let hitSize: CGFloat = 60
     private let spacing: CGFloat = 23
     private let verticalPadding: CGFloat = 15
     private let sideInset: CGFloat = 18
@@ -432,7 +442,7 @@ struct PlainScrollIcon: View {
     }
 }
 
-// MARK: - ✅ 新增：滚动栏下方四个矩形按钮（你自己导入 icon）
+// MARK: - ✅ 滚动栏下方四个矩形按钮（你自己导入 icon）
 struct ControlBar: View {
     let icons: [String]
     @Binding var selectedIndex: Int
@@ -479,3 +489,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
