@@ -6,8 +6,8 @@ struct ContentView: View {
 
     // 用你的 Assets 名称替换这 10 个
     private let icons: [String] = [
-        "icon_0", "icon_1", "icon_2", "icon_3", "icon_4",
-        "icon_5", "icon_6", "icon_7", "icon_8", "icon_9"
+        "icon_sun", "icon_grid", "icon_mountain", "icon_moon", "icon_arrows",
+        "icon_hz", "icon_8", "icon_dots", "icon_leaf", "icon_square"
     ]
 
     var body: some View {
@@ -32,10 +32,10 @@ struct IconScrollBar: View {
     @Binding var selectedIndex: Int
 
     // ===== 版式参数（按参考图调过）=====
-    private let circleSize: CGFloat = 38          // 圆圈视觉尺寸
+    private let circleSize: CGFloat = 60          // 圆圈视觉尺寸
     private let hitSize: CGFloat = 44             // 触摸命中区域
-    private let spacing: CGFloat = 12             // 圆圈之间间距
-    private let verticalPadding: CGFloat = 6      // bar 上下留白
+    private let spacing: CGFloat = 23             // 圆圈之间间距
+    private let verticalPadding: CGFloat = 15      // bar 上下留白
     private let sideInset: CGFloat = 18           // 左右内边距
 
     private let fadeWidth: CGFloat = 32
