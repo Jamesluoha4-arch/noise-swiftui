@@ -6,9 +6,15 @@ struct ContentView: View {
 
     // 用你的 Assets 名称替换这 10 个
     private let icons: [String] = [
-        "icon_sun", "icon_grid", "icon_mountain", "icon_moon", "icon_arrows",
-        "icon_hz", "icon_8", "icon_dots", "icon_leaf", "icon_square"
+        "icon_0", "icon_1", "icon_2", "icon_3", "icon_4",
+        "icon_5", "icon_6", "icon_7", "icon_8", "icon_9"
     ]
+
+    // ✅ 你的菜单 icon（你自己导入到 Assets，名字填这里）
+    private let menuIconName: String = "icon_menu"
+
+    // ✅ bar 整体向下移动：数值越大越靠下
+    private let barBottomOffset: CGFloat = 56
 
     var body: some View {
         ZStack {
@@ -17,8 +23,22 @@ struct ContentView: View {
             VStack {
                 Spacer()
 
-                IconScrollBar(icons: icons, selectedIndex: $selectedIndex)
-                    .padding(.bottom, 24)
+                // ✅ bar + 右侧固定菜单（菜单不随滚动，置顶层）
+                ZStack(alignment: .trailing) {
+
+                    IconScrollBar(icons: icons, selectedIndex: $selectedIndex)
+                        // ✅ 给右侧留空间，避免最后一个 icon 被菜单遮住
+                        .padding(.trailing, 52)
+
+                    MenuButton(assetName: menuIconName) {
+                        print("menu tapped")
+                    }
+                    .padding(.trailing, 16)
+                    // ✅ 如果你想菜单比 bar 略高/略低，调这个：
+                    .offset(y: 0)
+                }
+                // ✅ bar 整体向下移动
+                .padding(.bottom, barBottomOffset)
             }
         }
         .preferredColorScheme(.dark)
@@ -32,10 +52,10 @@ struct IconScrollBar: View {
     @Binding var selectedIndex: Int
 
     // ===== 版式参数（按参考图调过）=====
-    private let circleSize: CGFloat = 60          // 圆圈视觉尺寸
+    private let circleSize: CGFloat = 38          // 圆圈视觉尺寸
     private let hitSize: CGFloat = 44             // 触摸命中区域
-    private let spacing: CGFloat = 23             // 圆圈之间间距
-    private let verticalPadding: CGFloat = 15      // bar 上下留白
+    private let spacing: CGFloat = 12             // 圆圈之间间距
+    private let verticalPadding: CGFloat = 6      // bar 上下留白
     private let sideInset: CGFloat = 18           // 左右内边距
 
     private let fadeWidth: CGFloat = 32
@@ -163,5 +183,33 @@ struct IconCircle: View {
         .frame(width: hitSize, height: hitSize)
         .contentShape(Rectangle())
         .animation(.easeOut(duration: 0.16), value: isSelected)
+    }
+}
+
+// MARK: - Fixed Menu Button (top layer, not scroll)
+struct MenuButton: View {
+    let assetName: String
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            ZStack {
+                Circle()
+                    .fill(Color.white.opacity(0.06))
+                    .overlay(
+                        Circle()
+                            .stroke(Color.white.opacity(0.12), lineWidth: 1)
+                    )
+
+                Image(assetName)
+                    .resizable()
+                    .renderingMode(.template)
+                    .scaledToFit()
+                    .foregroundColor(.white.opacity(0.65))
+                    .frame(width: 18, height: 18)
+            }
+            .frame(width: 44, height: 44)
+        }
+        .buttonStyle(.plain)
     }
 }
