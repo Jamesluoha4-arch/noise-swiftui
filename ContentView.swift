@@ -1,5 +1,30 @@
 import SwiftUI
 
+// MARK: - Your Main Screen
+struct ContentView: View {
+    @State private var selectedIndex: Int = 0
+
+    // 用你的 Assets 名称替换这 10 个
+    private let icons: [String] = [
+        "icon_0", "icon_1", "icon_2", "icon_3", "icon_4",
+        "icon_5", "icon_6", "icon_7", "icon_8", "icon_9"
+    ]
+
+    var body: some View {
+        ZStack {
+            Color.black.ignoresSafeArea()
+
+            VStack {
+                Spacer()
+
+                IconScrollBar(icons: icons, selectedIndex: $selectedIndex)
+                    .padding(.bottom, 24)
+            }
+        }
+        .preferredColorScheme(.dark)
+    }
+}
+
 // MARK: - Scroll Bar (10 items, ~5 prominent, full width with fade masks)
 struct IconScrollBar: View {
 
@@ -7,23 +32,22 @@ struct IconScrollBar: View {
     @Binding var selectedIndex: Int
 
     // ===== 版式参数（按参考图调过）=====
-    private let circleSize: CGFloat = 38          // 圆圈视觉尺寸（参考图更小）
-    private let hitSize: CGFloat = 44             // 触摸命中区域（保持 iOS 标准）
-    private let spacing: CGFloat = 12             // 圆圈之间间距（更紧）
-    private let verticalPadding: CGFloat = 6      // bar 上下留白（更薄）
-    private let sideInset: CGFloat = 18           // 左右内边距（避免贴边太近）
+    private let circleSize: CGFloat = 38          // 圆圈视觉尺寸
+    private let hitSize: CGFloat = 44             // 触摸命中区域
+    private let spacing: CGFloat = 12             // 圆圈之间间距
+    private let verticalPadding: CGFloat = 6      // bar 上下留白
+    private let sideInset: CGFloat = 18           // 左右内边距
 
-    private let fadeWidth: CGFloat = 32           // 渐隐遮罩宽度（贴近参考图）
-    private let fadeStrong: Double = 1.0          // 最黑处强度
-    private let fadeMid: Double = 0.65            // 中间过渡
-    private let fadeClear: Double = 0.0           // 透明
+    private let fadeWidth: CGFloat = 32
+    private let fadeStrong: Double = 1.0
+    private let fadeMid: Double = 0.65
+    private let fadeClear: Double = 0.0
 
     var body: some View {
         ZStack {
             ScrollViewReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: spacing) {
-                        // 让首尾 item 也能滚到“舒服位置”
                         Spacer().frame(width: sideInset)
 
                         ForEach(icons.indices, id: \.self) { index in
@@ -50,8 +74,8 @@ struct IconScrollBar: View {
                     }
                     .padding(.vertical, verticalPadding)
                 }
-                .frame(maxWidth: .infinity)              // ✅ 关键：bar 容器全屏
-                .background(Color.black)                 // ✅ 防止 ScrollView 默认底色干扰
+                .frame(maxWidth: .infinity)
+                .background(Color.black)
                 .onAppear {
                     DispatchQueue.main.async {
                         proxy.scrollTo(selectedIndex, anchor: .center)
@@ -109,15 +133,12 @@ struct IconCircle: View {
     let circleSize: CGFloat
     let hitSize: CGFloat
 
-    // 参考图的“灰白层级”
     private var iconColor: Color {
         isSelected ? .white : .white.opacity(0.33)
     }
-
     private var fillOpacity: Double {
         isSelected ? 0.14 : 0.06
     }
-
     private var strokeOpacity: Double {
         isSelected ? 0.22 : 0.12
     }
@@ -133,13 +154,12 @@ struct IconCircle: View {
                 .frame(width: circleSize, height: circleSize)
 
             Image(assetName)
-                .resizable()                 // ✅ 保险：即便你导出的是大图也能按比例缩放
-                .renderingMode(.template)    // ✅ 允许用 foregroundColor 染色
+                .resizable()
+                .renderingMode(.template)
                 .scaledToFit()
                 .foregroundColor(iconColor)
-                .frame(width: circleSize * 0.60, height: circleSize * 0.60) // 图形占比更大
+                .frame(width: circleSize * 0.60, height: circleSize * 0.60)
         }
-        // ✅ 命中区域保持 44×44，手感好
         .frame(width: hitSize, height: hitSize)
         .contentShape(Rectangle())
         .animation(.easeOut(duration: 0.16), value: isSelected)
