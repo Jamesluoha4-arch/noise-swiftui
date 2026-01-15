@@ -490,3 +490,311 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+
+import SwiftUI
+struct IPhone16ProMax2: View {
+	var body: some View {
+		VStack(alignment: .leading){
+			ScrollView(){
+				VStack(alignment: .leading, spacing: 0) {
+					VStack(alignment: .leading){
+						HStack(spacing: 0){
+							VStack(alignment: .leading){
+								Text("logo")
+									.foregroundColor(Color(hex: "#D9D9D9"))
+									.font(.system(size: 8))
+							}
+							.padding(.vertical,10)
+							.padding(.horizontal,7)
+							.background(URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/k76s37wx_expires_30_days.png"))
+							.padding(.trailing,20)
+							Text("Brand Name")
+								.foregroundColor(Color(hex: "#D9D9D9"))
+								.font(.system(size: 19))
+							VStack(alignment: .leading){
+							}
+							.frame(maxWidth: .infinity, alignment: .leading)
+							URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/jlxhyzia_expires_30_days.png")
+								.frame(width : 27, height: 27, alignment: .leading)
+								.padding(.trailing,24)
+							VStack(alignment: .leading){
+								Text("AI助手")
+									.foregroundColor(Color(hex: "#D9D9D9"))
+									.font(.system(size: 8))
+							}
+							.padding(.vertical,10)
+							.padding(.horizontal,4)
+							.background(URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/5bp2o9zl_expires_30_days.png"))
+						}
+						.frame(height: 27)
+						.frame(maxWidth: .infinity)
+						.background(Color(hex: "#000000"))
+						.padding(.bottom,21)
+					}
+					.padding(.top,59)
+					.padding(.horizontal,24)
+					.frame(maxWidth: .infinity, alignment: .leading)
+					.background(Color(hex: "#000000"))
+					.padding(.bottom,15)
+					VStack(alignment: .leading){
+						VStack(alignment: .leading){
+							Text("分享并邀请")
+								.foregroundColor(Color(hex: "#FFFFFF"))
+								.font(.system(size: 19))
+								.fontWeight(.bold)
+								.padding(.bottom,14)
+						}
+						.padding(.top,191)
+						.padding(.leading,24)
+						.frame(maxWidth: .infinity, alignment: .leading)
+						.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF66"), Color(hex: "#00000012")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+					}
+					.padding(.bottom,13)
+					.padding(.horizontal,25)
+					.frame(maxWidth: .infinity, alignment: .leading)
+					.overlay(
+						VStack(alignment: .leading){
+						}
+						.frame(height: 27)
+						.frame(maxWidth: .infinity, alignment: .leading)
+						.background(Color(hex: "#000000"))
+						.padding(.bottom, 0)
+						.padding(.horizontal, 0), alignment: .bottomLeading
+					)
+					.padding(.bottom,36)
+					.padding(.horizontal,9)
+					HStack(spacing: 0){
+						Text("场景")
+							.foregroundColor(Color(hex: "#D9D9D9"))
+							.font(.system(size: 25))
+							.fontWeight(.bold)
+						Spacer()
+						Text("显示全部")
+							.foregroundColor(Color(hex: "#D9D9D9"))
+							.font(.system(size: 12))
+					}
+					.frame(maxWidth: .infinity)
+					.padding(.bottom,26)
+					.padding(.horizontal,31)
+					HStack(spacing: 35){
+						VStack(alignment: .leading, spacing: 34){
+							VStack(alignment: .leading, spacing: 0){
+								Text("专注")
+									.foregroundColor(Color(hex: "#D9D9D9"))
+									.font(.system(size: 15))
+									.fontWeight(.bold)
+									.padding(.leading,23)
+								URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/07mwkwxg_expires_30_days.png")
+									.cornerRadius(31)
+									.frame(width : 166, height: 185, alignment: .leading)
+							}
+							.padding(.top,15)
+							.padding(.bottom,3)
+							.padding(.horizontal,2)
+							.frame(maxWidth: .infinity, alignment: .leading)
+							.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+							VStack(alignment: .leading){
+								URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/04pfgv76_expires_30_days.png")
+									.cornerRadius(31)
+									.frame(width : 146, height: 99, alignment: .leading)
+							}
+							.padding(.vertical,9)
+							.padding(.leading,19)
+							.frame(maxWidth: .infinity, alignment: .leading)
+							.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+							.overlay(
+								Text("创造")
+									.foregroundColor(Color(hex: "#D9D9D9"))
+									.font(.system(size: 15))
+									.fontWeight(.bold)
+									.padding(.bottom, 8)
+									.padding(.leading, 19)
+								, alignment: .bottomLeading
+							)
+						}
+						.frame(maxWidth: .infinity, alignment: .leading)
+						VStack(alignment: .leading, spacing: 33){
+							VStack(alignment: .leading, spacing: 0){
+								VStack(alignment: .trailing){
+									Text("休息")
+										.foregroundColor(Color(hex: "#D9D9D9"))
+										.font(.system(size: 15))
+										.fontWeight(.bold)
+										.padding(.trailing,26)
+								}
+								.frame(maxWidth: .infinity, alignment: .trailing)
+								URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/eess6dzf_expires_30_days.png")
+									.cornerRadius(31)
+									.frame(width : 171, height: 87, alignment: .leading)
+							}
+							.padding(.top,15)
+							.padding(.bottom,2)
+							.frame(maxWidth: .infinity, alignment: .leading)
+							.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+							VStack(alignment: .leading, spacing: 6){
+								URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/jxu2ogpb_expires_30_days.png")
+									.cornerRadius(31)
+									.frame(width : 139, height: 173, alignment: .leading)
+									.padding(.leading,23)
+								VStack(alignment: .trailing){
+									Text("冥想")
+										.foregroundColor(Color(hex: "#D9D9D9"))
+										.font(.system(size: 15))
+										.fontWeight(.bold)
+										.padding(.trailing,26)
+								}
+								.frame(maxWidth: .infinity, alignment: .trailing)
+							}
+							.padding(.vertical,9)
+							.frame(maxWidth: .infinity, alignment: .leading)
+							.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+						}
+						.frame(maxWidth: .infinity, alignment: .leading)
+					}
+					.frame(maxWidth: .infinity)
+					.padding(.bottom,16)
+					.padding(.horizontal,34)
+					VStack(alignment: .leading){
+						VStack(alignment: .leading, spacing: 0){
+							HStack(spacing: 0){
+								VStack(alignment: .leading){
+									URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/jqifzifd_expires_30_days.png")
+										.cornerRadius(31)
+										.frame(width : 69, height: 69, alignment: .leading)
+								}
+								.overlay(
+									Text("声音")
+										.foregroundColor(Color(hex: "#D9D9D9"))
+										.font(.system(size: 25))
+										.fontWeight(.bold)
+										.padding(.bottom, 4)
+										.padding(.leading, -15)
+									, alignment: .bottomLeading
+								)
+								.padding(.leading,19)
+								.padding(.trailing,6)
+								VStack(alignment: .leading, spacing: 7){
+									Text("正在播放")
+										.foregroundColor(Color(hex: "#B6B6B6"))
+										.font(.system(size: 10))
+									Text("白噪音")
+										.foregroundColor(Color(hex: "#FFFFFF"))
+										.font(.system(size: 14))
+								}
+								Spacer()
+							}
+							.padding(.vertical,3)
+							.frame(maxWidth: .infinity)
+							.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+							.padding(.bottom,27)
+							.padding(.trailing,28)
+							Text("晚上好")
+								.foregroundColor(Color(hex: "#FFFFFF"))
+								.font(.system(size: 15))
+								.padding(.bottom,74)
+								.padding(.leading,8)
+							VStack(alignment: .trailing){
+								VStack(alignment: .leading){
+									VStack(alignment: .leading, spacing: 0){
+										VStack(alignment: .leading){
+											URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/kxfmlxf2_expires_30_days.png")
+												.frame(width : 96, height: 28, alignment: .leading)
+										}
+										.padding(.top,3)
+										.overlay(
+											URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/jeww833e_expires_30_days.png")
+												.frame(height: 28, alignment: .leading)
+												.padding(.top, 0)
+												.padding(.horizontal, 0)
+											, alignment: .topLeading
+										)
+										.padding(.bottom,91)
+										.padding(.leading,64)
+										.padding(.trailing,154)
+										VStack(alignment: .leading){
+											Text("自然之声")
+												.foregroundColor(Color(hex: "#D9D9D9"))
+												.font(.system(size: 15))
+												.fontWeight(.bold)
+										}
+										.padding(.vertical,22)
+										.padding(.horizontal,19)
+										.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+										.padding(.bottom,184)
+										.padding(.leading,38)
+									}
+									.padding(.top,127)
+									.background(URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/t0krw9de_expires_30_days.png"))
+								}
+								.overlay(
+									VStack(alignment: .leading){
+										Text("白噪音")
+											.foregroundColor(Color(hex: "#D9D9D9"))
+											.font(.system(size: 15))
+											.fontWeight(.bold)
+									}
+									.padding(.vertical,22)
+									.padding(.horizontal,25)
+									.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+									.padding(.top, 196)
+									.padding(.leading, -76), alignment: .topLeading
+								)
+								.overlay(
+									VStack(alignment: .leading){
+										Text("节奏")
+											.foregroundColor(Color(hex: "#D9D9D9"))
+											.font(.system(size: 15))
+											.fontWeight(.bold)
+									}
+									.padding(.vertical,22)
+									.padding(.horizontal,28)
+									.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+									.padding(.bottom, 127)
+									.padding(.leading, -74), alignment: .bottomLeading
+								)
+							}
+							.frame(maxWidth: .infinity, alignment: .trailing)
+						}
+						.frame(maxWidth: .infinity, alignment: .leading)
+					}
+					.frame(maxWidth: .infinity, alignment: .leading)
+					.overlay(
+						VStack(alignment: .leading){
+							Text("用户昵称")
+								.foregroundColor(Color(hex: "#FFFFFF"))
+								.font(.system(size: 20))
+								.fontWeight(.bold)
+						}
+						.padding(.vertical,15)
+						.padding(.horizontal,29)
+						.background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#FFFFFF12"), Color(hex: "#4B4B4B12")]), startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1)))
+						.padding(.top, 132)
+						.padding(.leading, 7), alignment: .topLeading
+					)
+					.overlay(
+						Text("现在是2026年1月14日夜间，一起开启好梦")
+							.foregroundColor(Color(hex: "#FFFFFF"))
+							.font(.system(size: 15))
+							.padding(.top, 211)
+							.padding(.leading, 11)
+						, alignment: .topLeading
+					)
+					.overlay(
+						URLImageView(url: "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/PAN0XomBrb/2r046d0l_expires_30_days.png")
+							.frame(width : 238, height: 236, alignment: .leading)
+							.padding(.top, 10)
+							.padding(.trailing, 46)
+						, alignment: .topTrailing
+					)
+					.padding(.leading,27)
+				}
+			}
+			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+			.background(Color(hex: "#000000"))
+		}
+		.padding(.top,0.1)
+		.padding(.bottom,0.1)
+		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+		.background(Color(hex: "#FFFFFF"))
+	}
+}
